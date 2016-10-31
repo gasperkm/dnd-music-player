@@ -1,0 +1,1398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>D&D music player</title>
+	<link rel="stylesheet" type="text/css" href="css/style_sheet.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.11.4.css">
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.11.4.min.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body onload="SetSceneNames(0)">
+
+<div id="structure">
+	<div class="option"><p>Current track</p>
+		<div id="currentthis">Currently playing:</div>
+		<div id="currentnext">Next track on this scene:</div>
+	</div>
+	<div class="option"><p>Scenes</p>
+		<div id="allscenes">
+			<div class="scene sceneshown" id="scene1">
+				<div class="scenedesc" id="scenedesc1"></div>
+				<div class="audios">
+					<audio id="audio1a">
+						<source id="sceneaudio1a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio1b">
+						<source id="sceneaudio1b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume1"></div>
+			</div>
+			<div class="scene sceneshown" id="scene2">
+				<div class="scenedesc" id="scenedesc2"></div>
+				<div class="audios">
+					<audio id="audio2a">
+						<source id="sceneaudio2a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio2b">
+						<source id="sceneaudio2b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume2"></div>
+			</div>
+			<div class="scene sceneshown" id="scene3">
+				<div class="scenedesc" id="scenedesc3"></div>
+				<div class="audios">
+					<audio id="audio3a">
+						<source id="sceneaudio3a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio3b">
+						<source id="sceneaudio3b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume3"></div>
+			</div>
+			<div class="scene sceneshown" id="scene4">
+				<div class="scenedesc" id="scenedesc4"></div>
+				<div class="audios">
+					<audio id="audio4a">
+						<source id="sceneaudio4a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio4b">
+						<source id="sceneaudio4b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume4"></div>
+			</div>
+			<div class="scene sceneshown" id="scene5">
+				<div class="scenedesc" id="scenedesc5"></div>
+				<div class="audios">
+					<audio id="audio5a">
+						<source id="sceneaudio5a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio5b">
+						<source id="sceneaudio5b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume5"></div>
+			</div>
+			<div class="scene sceneshown" id="scene6">
+				<div class="scenedesc" id="scenedesc6"></div>
+				<div class="audios">
+					<audio id="audio6a">
+						<source id="sceneaudio6a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio6b">
+						<source id="sceneaudio6b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume6"></div>
+			</div>
+			<div class="scene scenehidden" id="scene7">
+				<div class="scenedesc" id="scenedesc7"></div>
+				<div class="audios">
+					<audio id="audio7a">
+						<source id="sceneaudio7a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio7b">
+						<source id="sceneaudio7b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume7"></div>
+			</div>
+			<div class="scene scenehidden" id="scene8">
+				<div class="scenedesc" id="scenedesc8"></div>
+				<div class="audios">
+					<audio id="audio8a">
+						<source id="sceneaudio8a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio8b">
+						<source id="sceneaudio8b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume8"></div>
+			</div>
+			<div class="scene scenehidden" id="scene9">
+				<div class="scenedesc" id="scenedesc9"></div>
+				<div class="audios">
+					<audio id="audio9a">
+						<source id="sceneaudio9a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio9b">
+						<source id="sceneaudio9b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume9"></div>
+			</div>
+			<div class="scene scenehidden" id="scene10">
+				<div class="scenedesc" id="scenedesc10"></div>
+				<div class="audios">
+					<audio id="audio10a">
+						<source id="sceneaudio10a" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<audio id="audio10b">
+						<source id="sceneaudio10b" src="empty" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+				</div>
+				<div class="volume" id="volume10"></div>
+			</div>
+			<div class="scene">
+				<div id="stopall">Stop all</div>
+			</div>
+			<div class="scene">
+				<div id="nexttrack">Next track</div>
+			</div>
+			<br class="clear"/>
+		</div>
+	</div>
+	<div class="option"><p>Scene creation</p>
+		<div><button id="openpreset" onclick="OpenPreset()">Open preset music files</button></div>
+		<div id="musicselector">
+			<div class="scenesel">Scene 1: <input id="scenename1" type="text" name="scenename1" value="Ambient"> <input id="scenesubfolder1" type="text" name="scenesubfolder1" value="ambient"> <input type="file" id="files1" name="files1[]" multiple />
+				<output id="list1"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 2: <input id="scenename2" type="text" name="scenename2" value="Battle"> <input id="scenesubfolder2" type="text" name="scenesubfolder2" value="battle"> <input type="file" id="files2" name="files2[]" multiple />
+				<output id="list2"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 3: <input id="scenename3" type="text" name="scenename3" value="Creepy"> <input id="scenesubfolder3" type="text" name="scenesubfolder3" value="creepy"> <input type="file" id="files3" name="files3[]" multiple />
+				<output id="list3"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 4: <input id="scenename4" type="text" name="scenename4" value="Tavern"> <input id="scenesubfolder4" type="text" name="scenesubfolder4" value="tavern"> <input type="file" id="files4" name="files4[]" multiple />
+				<output id="list4"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 5: <input id="scenename5" type="text" name="scenename5" value="Temple"> <input id="scenesubfolder5" type="text" name="scenesubfolder5" value="temple"> <input type="file" id="files5" name="files5[]" multiple />
+				<output id="list5"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 6: <input id="scenename6" type="text" name="scenename6" value="Town"> <input id="scenesubfolder6" type="text" name="scenesubfolder6" value="town"> <input type="file" id="files6" name="files6[]" multiple />
+				<output id="list6"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 7: <input id="scenename7" type="text" name="scenename7" value="Scene name 7"> <input id="scenesubfolder7" type="text" name="scenesubfolder7" value="other"> <input type="file" id="files7" name="files7[]" multiple />
+				<output id="list7"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 8: <input id="scenename8" type="text" name="scenename8" value="Scene name 8"> <input id="scenesubfolder8" type="text" name="scenesubfolder8" value="other"> <input type="file" id="files8" name="files8[]" multiple />
+				<output id="list8"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 9: <input id="scenename9" type="text" name="scenename9" value="Scene name 9"> <input id="scenesubfolder9" type="text" name="scenesubfolder9" value="other"> <input type="file" id="files9" name="files9[]" multiple />
+				<output id="list9"></output>
+				<span></span>
+			</div>
+			<div class="scenesel">Scene 10: <input id="scenename10" type="text" name="scenename10" value="Scene name 10"> <input id="scenesubfolder10" type="text" name="scenesubfolder10" value="other"> <input type="file" id="files10" name="files10[]" multiple />
+				<output id="list10"></output>
+				<span></span>
+			</div>
+			<br class="clear"/>
+		</div>
+	</div>
+	<div class="option"><p>Set scene/track options</p>
+		<div id="tracksel">
+			<div>How many scenes to use: <select id="tracks">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6" selected>6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select><button id="changesel" onclick="SetupNumberOfScenes()">Set</button></div>
+		</div>
+		<div id="switchsel">
+			<div>How many seconds before the end of the track does the transition happen: <input id="switchset" type="number" name="switchset" value="2"></div>
+		</div>
+	</div>
+	<div class="option"><p>Testing information</p>
+		<div id="result">Result:</div>
+	</div>
+</div>
+<!--<div id="pb">Track time:</div>-->
+
+<script type="text/javascript">
+// Variables that hold current audio tags that are playing + variables that tell on which file in a row we currently are
+// playing: playing[0][0] = is audio1a currently playing?, playing[0][1] = is audio1b currently playing?, playing[0][2] = what is the current file in sequence loaded on track 1 (audio1a)?, playing[0][3] = what is the current file in sequence loaded on track 1 (audio1b), playing[0][4], playing[0][5] = opened filename
+// for first two vars: 0 = not yet played, 1 = last played on this track, 2 = currently playing
+var playing = [
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"],
+	[0,0,-1,-1,"empty","empty"]
+];
+
+var currentScene = -1;
+var currentTrack = -1;
+var previousScene = -1;
+var previousTrack = -1;
+
+var highVolume = [1,1,1,1,1,1,1,1,1,1];
+
+// Functions for changing names of scenes
+var curstring;
+
+// Copy scene names from the list below to each scene
+function SetSceneNames(nr)
+{
+	// When first opening the page, do this automatically, otherwise each separately
+	if(nr == 0)
+	{
+		$("#scenedesc1").text(document.getElementById("scenename1").value);
+		$("#scenedesc2").text(document.getElementById("scenename2").value);
+		$("#scenedesc3").text(document.getElementById("scenename3").value);
+		$("#scenedesc4").text(document.getElementById("scenename4").value);
+		$("#scenedesc5").text(document.getElementById("scenename5").value);
+		$("#scenedesc6").text(document.getElementById("scenename6").value);
+		$("#scenedesc7").text(document.getElementById("scenename7").value);
+		$("#scenedesc8").text(document.getElementById("scenename8").value);
+		$("#scenedesc9").text(document.getElementById("scenename9").value);
+		$("#scenedesc10").text(document.getElementById("scenename10").value);
+	}
+	else if(nr == 1)
+		$("#scenedesc1").text(document.getElementById("scenename1").value);
+	else if(nr == 2)
+		$("#scenedesc2").text(document.getElementById("scenename2").value);
+	else if(nr == 3)
+		$("#scenedesc3").text(document.getElementById("scenename3").value);
+	else if(nr == 4)
+		$("#scenedesc4").text(document.getElementById("scenename4").value);
+	else if(nr == 5)
+		$("#scenedesc5").text(document.getElementById("scenename5").value);
+	else if(nr == 6)
+		$("#scenedesc6").text(document.getElementById("scenename6").value);
+	else if(nr == 7)
+		$("#scenedesc7").text(document.getElementById("scenename7").value);
+	else if(nr == 8)
+		$("#scenedesc8").text(document.getElementById("scenename8").value);
+	else if(nr == 9)
+		$("#scenedesc9").text(document.getElementById("scenename9").value);
+	else if(nr == 10)
+		$("#scenedesc10").text(document.getElementById("scenename10").value);
+}
+
+// While typing the scene name, update it in the actual scene
+$("#scenename1").keyup(function() { SetSceneNames(1) });
+$("#scenename2").keyup(function() { SetSceneNames(2) });
+$("#scenename3").keyup(function() { SetSceneNames(3) });
+$("#scenename4").keyup(function() { SetSceneNames(4) });
+$("#scenename5").keyup(function() { SetSceneNames(5) });
+$("#scenename6").keyup(function() { SetSceneNames(6) });
+$("#scenename7").keyup(function() { SetSceneNames(7) });
+$("#scenename8").keyup(function() { SetSceneNames(8) });
+$("#scenename9").keyup(function() { SetSceneNames(9) });
+$("#scenename10").keyup(function() { SetSceneNames(10) });
+
+// Functions for uploading files onto an array
+var scene1 = new Array();
+var scene2 = new Array();
+var scene3 = new Array();
+var scene4 = new Array();
+var scene5 = new Array();
+var scene6 = new Array();
+var scene7 = new Array();
+var scene8 = new Array();
+var scene9 = new Array();
+var scene10 = new Array();
+
+// Take a random piece of the music list in a scene to play it next
+function shuffleArray(array) {
+	for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+// Using the Browse option for each scene opens up a dialog (second textbox defines the folder it is in)
+function handleFileSelect(evt) {
+	var scenearray = $(this).attr("id");
+	var files = evt.target.files;
+	var eachsetup = $(".scenesel");
+	
+	// Empty music arrays if they are full
+	if(scenearray == "files1")
+	{
+		scene1 = [];
+		$(eachsetup[0]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files2")
+	{
+		scene2 = [];
+		$(eachsetup[1]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files3")
+	{
+		scene3 = [];
+		$(eachsetup[2]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files4")
+	{
+		scene4 = [];
+		$(eachsetup[3]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files5")
+	{
+		scene5 = [];
+		$(eachsetup[4]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files6")
+	{
+		scene6 = [];
+		$(eachsetup[5]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files7")
+	{
+		scene7 = [];
+		$(eachsetup[6]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files8")
+	{
+		scene8 = [];
+		$(eachsetup[7]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files9")
+	{
+		scene9 = [];
+		$(eachsetup[8]).children("span").html(" (files opened separately)");
+	}
+	if(scenearray == "files10")
+	{
+		scene10 = [];
+		$(eachsetup[9]).children("span").html(" (files opened separately)");
+	}
+	
+    var output = [];
+	// Save the necessary filenames into an array
+    for (var i = 0, f; f = files[i]; i++) {
+		if(scenearray == "files1")
+			scene1[i] = "music/" + document.getElementById("scenesubfolder1").value + "/" + f.name;
+		else if(scenearray == "files2")
+			scene2[i] = "music/" + document.getElementById("scenesubfolder2").value + "/" + f.name;
+		else if(scenearray == "files3")
+			scene3[i] = "music/" + document.getElementById("scenesubfolder3").value + "/" + f.name;
+		else if(scenearray == "files4")
+			scene4[i] = "music/" + document.getElementById("scenesubfolder4").value + "/" + f.name;
+		else if(scenearray == "files5")
+			scene5[i] = "music/" + document.getElementById("scenesubfolder5").value + "/" + f.name;
+		else if(scenearray == "files6")
+			scene6[i] = "music/" + document.getElementById("scenesubfolder6").value + "/" + f.name;
+		else if(scenearray == "files7")
+			scene7[i] = "music/" + document.getElementById("scenesubfolder7").value + "/" + f.name;
+		else if(scenearray == "files8")
+			scene8[i] = "music/" + document.getElementById("scenesubfolder8").value + "/" + f.name;
+		else if(scenearray == "files9")
+			scene9[i] = "music/" + document.getElementById("scenesubfolder9").value + "/" + f.name;
+		else if(scenearray == "files10")
+			scene10[i] = "music/" + document.getElementById("scenesubfolder10").value + "/" + f.name;
+		else
+			alert("There has been an error!");
+    }
+	
+	// Prepare the audio files and open the first two
+	if(scenearray == "files1")
+	{
+		shuffleArray(scene1);
+		
+		document.getElementById("sceneaudio1a").src = scene1[0];
+		document.getElementById("audio1a").load();
+		document.getElementById("audio1a").volume = 0.0;
+		playing[0][2] = 0;
+		playing[0][4] = scene1[0];
+		document.getElementById("sceneaudio1b").src = scene1[1];
+		document.getElementById("audio1b").load();
+		document.getElementById("audio1b").volume = 0.0;
+		playing[0][3] = 1;
+		playing[0][5] = scene1[1];
+	}
+	else if(scenearray == "files2")
+	{
+		shuffleArray(scene2);
+		
+		document.getElementById("sceneaudio2a").src = scene2[0];
+		document.getElementById("audio2a").load();
+		document.getElementById("audio2a").volume = 0.0;
+		playing[1][2] = 0;
+		playing[1][4] = scene2[0];
+		document.getElementById("sceneaudio2b").src = scene2[1];
+		document.getElementById("audio2b").load();
+		document.getElementById("audio2b").volume = 0.0;
+		playing[1][3] = 1;
+		playing[1][5] = scene2[1];
+	}
+	else if(scenearray == "files3")
+	{
+		shuffleArray(scene3);
+		
+		document.getElementById("sceneaudio3a").src = scene3[0];
+		document.getElementById("audio3a").load();
+		document.getElementById("audio3a").volume = 0.0;
+		playing[2][2] = 0;
+		playing[2][4] = scene3[0];
+		document.getElementById("sceneaudio3b").src = scene3[1];
+		document.getElementById("audio3b").load();
+		document.getElementById("audio3b").volume = 0.0;
+		playing[2][3] = 1;
+		playing[2][5] = scene3[1];
+	}
+	else if(scenearray == "files4")
+	{
+		shuffleArray(scene4);
+		
+		document.getElementById("sceneaudio4a").src = scene4[0];
+		document.getElementById("audio4a").load();
+		document.getElementById("audio4a").volume = 0.0;
+		playing[3][2] = 0;
+		playing[3][4] = scene4[0];
+		document.getElementById("sceneaudio4b").src = scene4[1];
+		document.getElementById("audio4b").load();
+		document.getElementById("audio4b").volume = 0.0;
+		playing[3][3] = 1;
+		playing[3][5] = scene4[1];
+	}
+	else if(scenearray == "files5")
+	{
+		shuffleArray(scene5);
+		
+		document.getElementById("sceneaudio5a").src = scene5[0];
+		document.getElementById("audio5a").load();
+		document.getElementById("audio5a").volume = 0.0;
+		playing[4][2] = 0;
+		playing[4][4] = scene5[0];
+		document.getElementById("sceneaudio5b").src = scene5[1];
+		document.getElementById("audio5b").load();
+		document.getElementById("audio5b").volume = 0.0;
+		playing[4][3] = 1;
+		playing[4][5] = scene5[1];
+	}
+	else if(scenearray == "files6")
+	{
+		shuffleArray(scene6);
+		
+		document.getElementById("sceneaudio6a").src = scene6[0];
+		document.getElementById("audio6a").load();
+		document.getElementById("audio6a").volume = 0.0;
+		playing[5][2] = 0;
+		playing[5][4] = scene6[0];
+		document.getElementById("sceneaudio6b").src = scene6[1];
+		document.getElementById("audio6b").load();
+		document.getElementById("audio6b").volume = 0.0;
+		playing[5][3] = 1;
+		playing[5][5] = scene6[1];
+	}
+	else if(scenearray == "files7")
+	{
+		shuffleArray(scene7);
+		
+		document.getElementById("sceneaudio7a").src = scene7[0];
+		document.getElementById("audio7a").load();
+		document.getElementById("audio7a").volume = 0.0;
+		playing[6][2] = 0;
+		playing[6][4] = scene7[0];
+		document.getElementById("sceneaudio7b").src = scene7[1];
+		document.getElementById("audio7b").load();
+		document.getElementById("audio7b").volume = 0.0;
+		playing[6][3] = 1;
+		playing[6][5] = scene7[1];
+	}
+	else if(scenearray == "files8")
+	{
+		shuffleArray(scene8);
+		
+		document.getElementById("sceneaudio8a").src = scene8[0];
+		document.getElementById("audio8a").load();
+		document.getElementById("audio8a").volume = 0.0;
+		playing[7][2] = 0;
+		playing[7][4] = scene8[0];
+		document.getElementById("sceneaudio8b").src = scene8[1];
+		document.getElementById("audio8b").load();
+		document.getElementById("audio8b").volume = 0.0;
+		playing[7][3] = 1;
+		playing[7][5] = scene8[1];
+	}
+	else if(scenearray == "files9")
+	{
+		shuffleArray(scene9);
+		
+		document.getElementById("sceneaudio9a").src = scene9[0];
+		document.getElementById("audio9a").load();
+		document.getElementById("audio9a").volume = 0.0;
+		playing[8][2] = 0;
+		playing[8][4] = scene9[0];
+		document.getElementById("sceneaudio9b").src = scene9[1];
+		document.getElementById("audio9b").load();
+		document.getElementById("audio9b").volume = 0.0;
+		playing[8][3] = 1;
+		playing[8][5] = scene9[1];
+	}
+	else if(scenearray == "files10")
+	{
+		shuffleArray(scene10);
+		
+		document.getElementById("sceneaudio10a").src = scene10[0];
+		document.getElementById("audio10a").load();
+		document.getElementById("audio10a").volume = 0.0;
+		playing[9][2] = 0;
+		playing[9][4] = scene10[0];
+		document.getElementById("sceneaudio10b").src = scene10[1];
+		document.getElementById("audio10b").load();
+		document.getElementById("audio10b").volume = 0.0;
+		playing[9][3] = 1;
+		playing[9][5] = scene10[1];
+	}
+}
+
+// Wait for when a user clicks the Browse button on a scene to start opening files
+document.getElementById('files1').addEventListener('change', handleFileSelect, false);
+document.getElementById('files2').addEventListener('change', handleFileSelect, false);
+document.getElementById('files3').addEventListener('change', handleFileSelect, false);
+document.getElementById('files4').addEventListener('change', handleFileSelect, false);
+document.getElementById('files5').addEventListener('change', handleFileSelect, false);
+document.getElementById('files6').addEventListener('change', handleFileSelect, false);
+document.getElementById('files7').addEventListener('change', handleFileSelect, false);
+document.getElementById('files8').addEventListener('change', handleFileSelect, false);
+document.getElementById('files9').addEventListener('change', handleFileSelect, false);
+document.getElementById('files10').addEventListener('change', handleFileSelect, false);
+
+// Sliders for volume controls
+$('#volume1').slider({
+    orientation: "horizontal",
+    value: audio1a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio1a.volume = ui.value;
+        audio1b.volume = ui.value;
+    }
+});
+$('#volume2').slider({
+    orientation: "horizontal",
+    value: audio2a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio2a.volume = ui.value;
+        audio2b.volume = ui.value;
+    }
+});
+$('#volume3').slider({
+    orientation: "horizontal",
+    value: audio3a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio3a.volume = ui.value;
+        audio3b.volume = ui.value;
+    }
+});
+$('#volume4').slider({
+    orientation: "horizontal",
+    value: audio4a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio4a.volume = ui.value;
+        audio4b.volume = ui.value;
+    }
+});
+$('#volume5').slider({
+    orientation: "horizontal",
+    value: audio5a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio5a.volume = ui.value;
+        audio5b.volume = ui.value;
+    }
+});
+$('#volume6').slider({
+    orientation: "horizontal",
+    value: audio6a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio6a.volume = ui.value;
+        audio6b.volume = ui.value;
+    }
+});
+$('#volume7').slider({
+    orientation: "horizontal",
+    value: audio7a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio7a.volume = ui.value;
+        audio7b.volume = ui.value;
+    }
+});
+$('#volume8').slider({
+    orientation: "horizontal",
+    value: audio8a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio8a.volume = ui.value;
+        audio8b.volume = ui.value;
+    }
+});
+$('#volume9').slider({
+    orientation: "horizontal",
+    value: audio9a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio9a.volume = ui.value;
+        audio9b.volume = ui.value;
+    }
+});
+$('#volume10').slider({
+    orientation: "horizontal",
+    value: audio10a.volume,
+    min: 0,
+    max: 1,
+    range: 'min',
+    animate: true,
+    step: .05,
+    slide: function(e, ui) {
+        audio10a.volume = ui.value;
+        audio10b.volume = ui.value;
+    }
+});
+
+// Clicking stop all, stops all audio at current time
+$("#stopall").click(function()
+{
+	$("#audio1a").trigger("pause");
+	$("#audio1b").trigger("pause");
+	document.getElementById("audio1a").load();
+	document.getElementById("audio1b").load();
+	playing[0][0] = 0;
+	playing[0][1] = 0;
+	$("#audio2a").trigger("pause");
+	$("#audio2b").trigger("pause");
+	document.getElementById("audio2a").load();
+	document.getElementById("audio2b").load();
+	playing[1][0] = 0;
+	playing[1][1] = 0;
+	$("#audio3a").trigger("pause");
+	$("#audio3b").trigger("pause");
+	document.getElementById("audio3a").load();
+	document.getElementById("audio3b").load();
+	playing[2][0] = 0;
+	playing[2][1] = 0;
+	$("#audio4a").trigger("pause");
+	$("#audio4b").trigger("pause");
+	document.getElementById("audio4a").load();
+	document.getElementById("audio4b").load();
+	playing[3][0] = 0;
+	playing[3][1] = 0;
+	$("#audio5a").trigger("pause");
+	$("#audio5b").trigger("pause");
+	document.getElementById("audio5a").load();
+	document.getElementById("audio5b").load();
+	playing[4][0] = 0;
+	playing[4][1] = 0;
+	$("#audio6a").trigger("pause");
+	$("#audio6b").trigger("pause");
+	document.getElementById("audio6a").load();
+	document.getElementById("audio6b").load();
+	playing[5][0] = 0;
+	playing[5][1] = 0;
+	$("#audio7a").trigger("pause");
+	$("#audio7b").trigger("pause");
+	document.getElementById("audio7a").load();
+	document.getElementById("audio7b").load();
+	playing[6][0] = 0;
+	playing[6][1] = 0;
+	$("#audio8a").trigger("pause");
+	$("#audio8b").trigger("pause");
+	document.getElementById("audio8a").load();
+	document.getElementById("audio8b").load();
+	playing[7][0] = 0;
+	playing[7][1] = 0;
+	$("#audio9a").trigger("pause");
+	$("#audio9b").trigger("pause");
+	document.getElementById("audio9a").load();
+	document.getElementById("audio9b").load();
+	playing[8][0] = 0;
+	playing[8][1] = 0;
+	$("#audio10a").trigger("pause");
+	$("#audio10b").trigger("pause");
+	document.getElementById("audio10a").load();
+	document.getElementById("audio10b").load();
+	playing[9][0] = 0;
+	playing[9][1] = 0;
+	
+	$("#scenedesc" + currentScene).parent().switchClass("sceneselected","scene");
+	currentScene = -1;
+	currentTrack = -1;
+	previousScene = -1;
+	previousTrack = -1;
+	
+	$("#result").html("Scene 01: " + playing[0][0] + ", " + playing[0][1] + ", " + playing[0][2] + ", " + playing[0][3] + ", " + playing[0][4] + ", " + playing[0][5] + "<br/>" + 
+	"Scene 02: " + playing[1][0] + ", " + playing[1][1] + ", " + playing[1][2] + ", " + playing[1][3] + ", " + playing[1][4] + ", " + playing[1][5] + "<br/>" + 
+	"Scene 03: " + playing[2][0] + ", " + playing[2][1] + ", " + playing[2][2] + ", " + playing[2][3] + ", " + playing[2][4] + ", " + playing[2][5] + "<br/>" + 
+	"Scene 04: " + playing[3][0] + ", " + playing[3][1] + ", " + playing[3][2] + ", " + playing[3][3] + ", " + playing[3][4] + ", " + playing[3][5] + "<br/>" + 
+	"Scene 05: " + playing[4][0] + ", " + playing[4][1] + ", " + playing[4][2] + ", " + playing[4][3] + ", " + playing[4][4] + ", " + playing[4][5] + "<br/>" + 
+	"Scene 06: " + playing[5][0] + ", " + playing[5][1] + ", " + playing[5][2] + ", " + playing[5][3] + ", " + playing[5][4] + ", " + playing[5][5] + "<br/>" + 
+	"Scene 07: " + playing[6][0] + ", " + playing[6][1] + ", " + playing[6][2] + ", " + playing[6][3] + ", " + playing[6][4] + ", " + playing[6][5] + "<br/>" + 
+	"Scene 08: " + playing[7][0] + ", " + playing[7][1] + ", " + playing[7][2] + ", " + playing[7][3] + ", " + playing[7][4] + ", " + playing[7][5] + "<br/>" + 
+	"Scene 09: " + playing[8][0] + ", " + playing[8][1] + ", " + playing[8][2] + ", " + playing[8][3] + ", " + playing[8][4] + ", " + playing[8][5] + "<br/>" + 
+	"Scene 10: " + playing[9][0] + ", " + playing[9][1] + ", " + playing[9][2] + ", " + playing[9][3] + ", " + playing[9][4] + ", " + playing[9][5] + "<br/>" + 
+	"Current scene = " + currentScene + ", Current track = " + currentTrack + ", Previous scene = " + previousScene + ", Previous track = " + previousTrack + "<br/>" +
+	"Volume: " + highVolume[0] + ", " + highVolume[1] + ", " + highVolume[2] + ", " + highVolume[3] + ", " + highVolume[4] + ", " + highVolume[5] + ", " + highVolume[6] + ", " + highVolume[7] + ", " + highVolume[8] + ", " + highVolume[9]);
+	
+	$("#currentthis").html("Currently playing:");
+	$("#currentnext").html("Next track on this scene:");
+});
+
+// Setting what is currently playing and transitions
+// Clicking on a scene, plays that scene (with a transition)
+function PlayScene(sNr, sDesc, sAudio, audio)
+{
+	// first time run or run after stop
+	if(currentScene == -1)
+	{
+		if(playing[sNr-1][4] != "empty")
+		{
+			if( (playing[sNr-1][0] == 0) && (playing[sNr-1][1] == 0) )
+			{
+				$("#" + audio + "a").animate({volume: highVolume[sNr-1]}, 800);
+				$("#" + audio + "a").trigger("play");
+				playing[sNr-1][0] = 2;
+				$("#" + sDesc).parent().switchClass("scene","sceneselected");
+				currentScene = sNr;
+				currentTrack = "a";
+			}
+		}
+		else
+			alert("No files opened for scene: " + $("#" + sDesc).html());
+	}
+	// run whenever we previously had another scene turned on (transition)
+	else if(currentScene > 0)
+	{
+		if(playing[sNr-1][4] != "empty")
+		{
+			previousScene = currentScene;
+			previousTrack = currentTrack;
+			currentScene = sNr;
+			
+			if(playing[currentScene-1][0] == 1)
+				currentTrack = "a";
+			else if(playing[currentScene-1][1] == 1)
+				currentTrack = "b";
+			else if( (playing[currentScene-1][0] == 0) && (playing[currentScene-1][1] == 0) )
+				currentTrack = "a";
+				
+			$("#audio" + currentScene + currentTrack).animate({volume: highVolume[sNr-1]}, 800);
+			$("#audio" + currentScene + currentTrack).trigger("play");
+		
+			highVolume[previousScene-1] = document.getElementById("audio" + previousScene + previousTrack).volume;
+			
+			$("#audio" + previousScene + previousTrack).animate({volume: 0.0}, 800, function(){
+				$("#audio" + previousScene + previousTrack).trigger("pause");
+			});
+			
+			if(currentTrack == "a")
+				playing[currentScene-1][0] = 2;
+			else if(currentTrack == "b")
+				playing[currentScene-1][1] = 2;
+			$("#scenedesc" + currentScene).parent().switchClass("scene","sceneselected");
+				
+			if(previousTrack == "a")
+				playing[previousScene-1][0] = 1;
+			else if(previousTrack == "b")
+				playing[previousScene-1][1] = 1;
+			$("#scenedesc" + previousScene).parent().switchClass("sceneselected","scene");
+		}
+		else
+			alert("No files opened for scene: " + $("#" + sDesc).html());
+	}
+	
+	$("#result").html("Scene 01: " + playing[0][0] + ", " + playing[0][1] + ", " + playing[0][2] + ", " + playing[0][3] + ", " + playing[0][4] + ", " + playing[0][5] + "<br/>" + 
+	"Scene 02: " + playing[1][0] + ", " + playing[1][1] + ", " + playing[1][2] + ", " + playing[1][3] + ", " + playing[1][4] + ", " + playing[1][5] + "<br/>" + 
+	"Scene 03: " + playing[2][0] + ", " + playing[2][1] + ", " + playing[2][2] + ", " + playing[2][3] + ", " + playing[2][4] + ", " + playing[2][5] + "<br/>" + 
+	"Scene 04: " + playing[3][0] + ", " + playing[3][1] + ", " + playing[3][2] + ", " + playing[3][3] + ", " + playing[3][4] + ", " + playing[3][5] + "<br/>" + 
+	"Scene 05: " + playing[4][0] + ", " + playing[4][1] + ", " + playing[4][2] + ", " + playing[4][3] + ", " + playing[4][4] + ", " + playing[4][5] + "<br/>" + 
+	"Scene 06: " + playing[5][0] + ", " + playing[5][1] + ", " + playing[5][2] + ", " + playing[5][3] + ", " + playing[5][4] + ", " + playing[5][5] + "<br/>" + 
+	"Scene 07: " + playing[6][0] + ", " + playing[6][1] + ", " + playing[6][2] + ", " + playing[6][3] + ", " + playing[6][4] + ", " + playing[6][5] + "<br/>" + 
+	"Scene 08: " + playing[7][0] + ", " + playing[7][1] + ", " + playing[7][2] + ", " + playing[7][3] + ", " + playing[7][4] + ", " + playing[7][5] + "<br/>" + 
+	"Scene 09: " + playing[8][0] + ", " + playing[8][1] + ", " + playing[8][2] + ", " + playing[8][3] + ", " + playing[8][4] + ", " + playing[8][5] + "<br/>" + 
+	"Scene 10: " + playing[9][0] + ", " + playing[9][1] + ", " + playing[9][2] + ", " + playing[9][3] + ", " + playing[9][4] + ", " + playing[9][5] + "<br/>" +
+	"Current scene = " + currentScene + ", Current track = " + currentTrack + ", Previous scene = " + previousScene + ", Previous track = " + previousTrack + "<br/>" +
+	"Volume: " + highVolume[0] + ", " + highVolume[1] + ", " + highVolume[2] + ", " + highVolume[3] + ", " + highVolume[4] + ", " + highVolume[5] + ", " + highVolume[6] + ", " + highVolume[7] + ", " + highVolume[8] + ", " + highVolume[9]);
+	
+	GetCurrentTrack();
+}
+
+// Clicking on a scene, plays that scene (with a transition)
+$("#scenedesc1").click(function() { PlayScene(1, "scenedesc1", "sceneaudio1", "audio1") });
+$("#scenedesc2").click(function() { PlayScene(2, "scenedesc2", "sceneaudio2", "audio2") });
+$("#scenedesc3").click(function() { PlayScene(3, "scenedesc3", "sceneaudio3", "audio3") });
+$("#scenedesc4").click(function() { PlayScene(4, "scenedesc4", "sceneaudio4", "audio4") });
+$("#scenedesc5").click(function() { PlayScene(5, "scenedesc5", "sceneaudio5", "audio5") });
+$("#scenedesc6").click(function() { PlayScene(6, "scenedesc6", "sceneaudio6", "audio6") });
+$("#scenedesc7").click(function() { PlayScene(7, "scenedesc7", "sceneaudio7", "audio7") });
+$("#scenedesc8").click(function() { PlayScene(8, "scenedesc8", "sceneaudio8", "audio8") });
+$("#scenedesc9").click(function() { PlayScene(9, "scenedesc9", "sceneaudio9", "audio9") });
+$("#scenedesc10").click(function() { PlayScene(10, "scenedesc10", "sceneaudio10", "audio10") });
+
+// Switch between first and second tracks or viceversa and load a new track
+var onetime = 0;
+
+// Switch between first and second saved tracks for a scene
+function SwitchTracks(sNr, nexttrack)
+{	
+	var transition = Number(document.getElementById("audio" + currentScene + currentTrack).duration) - document.getElementById("switchset").value;
+	
+	if( ((document.getElementById("audio" + currentScene + currentTrack).currentTime >= transition) && (onetime == 0)) || (nexttrack == 1) )
+	{
+		onetime = 1;
+		if( (currentTrack == "a") || (currentTrack == "b") )	// TODO: Still need to correct volume transitions between subsequent tracks
+		{		
+			previousScene = currentScene;
+			previousTrack = currentTrack;
+			currentScene = sNr;
+			
+			if(previousTrack == "a")
+				currentTrack = "b";
+			else if(previousTrack == "b")
+				currentTrack = "a";
+		
+			highVolume[previousScene-1] = document.getElementById("audio" + previousScene + previousTrack).volume;
+				
+			$("#audio" + currentScene + currentTrack).animate({volume: highVolume[sNr-1]}, 800);
+			$("#audio" + currentScene + currentTrack).trigger("play");
+			
+			$("#audio" + previousScene + previousTrack).animate({volume: 0.0}, 800, function(){
+				$("#audio" + previousScene + previousTrack).trigger("pause");
+			});
+			
+			var nexttrack;
+			if( playing[currentScene-1][2] > playing[currentScene-1][3] )
+			{
+				nexttrack = playing[currentScene-1][2] + 1;
+				if( (playing[currentScene-1][2] - playing[currentScene-1][3]) != 1 )
+					nexttrack = 1
+			}
+			else if( playing[currentScene-1][2] < playing[currentScene-1][3] )
+			{
+				nexttrack = playing[currentScene-1][3] + 1;
+				if( (playing[currentScene-1][3] - playing[currentScene-1][2]) != 1 )
+					nexttrack = 1
+			}
+			
+			var scenesel = new Array();
+			if(previousScene == 1)
+				scenesel = scene1;
+			else if(previousScene == 2)
+				scenesel = scene2;
+			else if(previousScene == 3)
+				scenesel = scene3;
+			else if(previousScene == 4)
+				scenesel = scene4;
+			else if(previousScene == 5)
+				scenesel = scene5;
+			else if(previousScene == 6)
+				scenesel = scene6;
+			else if(previousScene == 7)
+				scenesel = scene7;
+			else if(previousScene == 8)
+				scenesel = scene8;
+			else if(previousScene == 9)
+				scenesel = scene9;
+			else if(previousScene == 10)
+				scenesel = scene10;
+					
+			if(nexttrack == scenesel.length)
+			{	
+				if(previousScene == 1)
+				{
+					shuffleArray(scene1);
+					scenesel = scene1;
+				}
+				else if(previousScene == 2)
+				{
+					shuffleArray(scene2);
+					scenesel = scene2;
+				}
+				else if(previousScene == 3)
+				{
+					shuffleArray(scene3);
+					scenesel = scene3;
+				}
+				else if(previousScene == 4)
+				{
+					shuffleArray(scene4);
+					scenesel = scene4;
+				}
+				else if(previousScene == 5)
+				{
+					shuffleArray(scene5);
+					scenesel = scene5;
+				}
+				else if(previousScene == 6)
+				{
+					shuffleArray(scene6);
+					scenesel = scene6;
+				}
+				else if(previousScene == 7)
+				{
+					shuffleArray(scene7);
+					scenesel = scene7;
+				}
+				else if(previousScene == 8)
+				{
+					shuffleArray(scene8);
+					scenesel = scene8;
+				}
+				else if(previousScene == 9)
+				{
+					shuffleArray(scene9);
+					scenesel = scene9;
+				}
+				else if(previousScene == 10)
+				{
+					shuffleArray(scene10);
+					scenesel = scene10;
+				}
+//				shuffleArray(scenesel);
+				nexttrack = 0;
+			}
+			document.getElementById("sceneaudio" + previousScene + previousTrack).src = scenesel[nexttrack];
+			document.getElementById("audio" + previousScene + previousTrack).load();
+			
+			if(currentTrack == "a")
+			{
+				playing[previousScene-1][3] = nexttrack;
+				playing[previousScene-1][5] = scenesel[nexttrack];
+				
+				playing[currentScene-1][0] = 2;
+				playing[previousScene-1][1] = 0;
+			}
+			else if(currentTrack == "b")
+			{
+				playing[previousScene-1][2] = nexttrack;
+				playing[previousScene-1][4] = scenesel[nexttrack];
+				
+				playing[currentScene-1][1] = 2;
+				playing[previousScene-1][0] = 0;
+			}
+			
+	
+			$("#result").html("Scene 01: " + playing[0][0] + ", " + playing[0][1] + ", " + playing[0][2] + ", " + playing[0][3] + ", " + playing[0][4] + ", " + playing[0][5] + "<br/>" + 
+			"Scene 02: " + playing[1][0] + ", " + playing[1][1] + ", " + playing[1][2] + ", " + playing[1][3] + ", " + playing[1][4] + ", " + playing[1][5] + "<br/>" + 
+			"Scene 03: " + playing[2][0] + ", " + playing[2][1] + ", " + playing[2][2] + ", " + playing[2][3] + ", " + playing[2][4] + ", " + playing[2][5] + "<br/>" + 
+			"Scene 04: " + playing[3][0] + ", " + playing[3][1] + ", " + playing[3][2] + ", " + playing[3][3] + ", " + playing[3][4] + ", " + playing[3][5] + "<br/>" + 
+			"Scene 05: " + playing[4][0] + ", " + playing[4][1] + ", " + playing[4][2] + ", " + playing[4][3] + ", " + playing[4][4] + ", " + playing[4][5] + "<br/>" + 
+			"Scene 06: " + playing[5][0] + ", " + playing[5][1] + ", " + playing[5][2] + ", " + playing[5][3] + ", " + playing[5][4] + ", " + playing[5][5] + "<br/>" + 
+			"Scene 07: " + playing[6][0] + ", " + playing[6][1] + ", " + playing[6][2] + ", " + playing[6][3] + ", " + playing[6][4] + ", " + playing[6][5] + "<br/>" + 
+			"Scene 08: " + playing[7][0] + ", " + playing[7][1] + ", " + playing[7][2] + ", " + playing[7][3] + ", " + playing[7][4] + ", " + playing[7][5] + "<br/>" + 
+			"Scene 09: " + playing[8][0] + ", " + playing[8][1] + ", " + playing[8][2] + ", " + playing[8][3] + ", " + playing[8][4] + ", " + playing[8][5] + "<br/>" + 
+			"Scene 10: " + playing[9][0] + ", " + playing[9][1] + ", " + playing[9][2] + ", " + playing[9][3] + ", " + playing[9][4] + ", " + playing[9][5] + "<br/>" +
+			"Current scene = " + currentScene + ", Current track = " + currentTrack + ", Previous scene = " + previousScene + ", Previous track = " + previousTrack + "<br/>" +
+			"Volume: " + highVolume[0] + ", " + highVolume[1] + ", " + highVolume[2] + ", " + highVolume[3] + ", " + highVolume[4] + ", " + highVolume[5] + ", " + highVolume[6] + ", " + highVolume[7] + ", " + highVolume[8] + ", " + highVolume[9]);
+			
+			GetCurrentTrack();
+		}
+	}
+	else if( document.getElementById("audio" + currentScene + currentTrack).currentTime < transition )
+		onetime = 0;
+		
+	UpdateTime();
+}
+
+// Switch between tracks when we get to a set time
+document.getElementById("audio1a").ontimeupdate = function() { SwitchTracks(1, 0) };
+document.getElementById("audio1b").ontimeupdate = function() { SwitchTracks(1, 0) };
+document.getElementById("audio2a").ontimeupdate = function() { SwitchTracks(2, 0) };
+document.getElementById("audio2b").ontimeupdate = function() { SwitchTracks(2, 0) };
+document.getElementById("audio3a").ontimeupdate = function() { SwitchTracks(3, 0) };
+document.getElementById("audio3b").ontimeupdate = function() { SwitchTracks(3, 0) };
+document.getElementById("audio4a").ontimeupdate = function() { SwitchTracks(4, 0) };
+document.getElementById("audio4b").ontimeupdate = function() { SwitchTracks(4, 0) };
+document.getElementById("audio5a").ontimeupdate = function() { SwitchTracks(5, 0) };
+document.getElementById("audio5b").ontimeupdate = function() { SwitchTracks(5, 0) };
+document.getElementById("audio6a").ontimeupdate = function() { SwitchTracks(6, 0) };
+document.getElementById("audio6b").ontimeupdate = function() { SwitchTracks(6, 0) };
+document.getElementById("audio7a").ontimeupdate = function() { SwitchTracks(7, 0) };
+document.getElementById("audio7b").ontimeupdate = function() { SwitchTracks(7, 0) };
+document.getElementById("audio8a").ontimeupdate = function() { SwitchTracks(8, 0) };
+document.getElementById("audio8b").ontimeupdate = function() { SwitchTracks(8, 0) };
+document.getElementById("audio9a").ontimeupdate = function() { SwitchTracks(9, 0) };
+document.getElementById("audio9b").ontimeupdate = function() { SwitchTracks(9, 0) };
+document.getElementById("audio10a").ontimeupdate = function() { SwitchTracks(10, 0) };
+document.getElementById("audio10b").ontimeupdate = function() { SwitchTracks(10, 0) };
+
+$("#nexttrack").click(function() { 
+	if(currentScene != -1)
+		SwitchTracks(currentScene, 1);
+});
+
+// Transform time
+function TransformTime(intime)
+{
+	var temptime = 0;
+	var midtime = 0;
+	var stringtime;
+	
+	// Get hours
+	midtime = Number(intime)/3600.;
+	temptime = Math.floor(midtime);
+	if(temptime < 10)
+		stringtime = "0" + temptime.toString() + ":";
+	else
+		stringtime = temptime.toString() + ":";
+	temptime = (midtime - temptime)*3600.;
+
+	// Get minutes
+	midtime = Number(temptime/60.);
+	temptime = Math.floor(midtime);
+	if(temptime < 10)
+		stringtime = stringtime + "0" + temptime.toString() + ":";
+	else
+		stringtime = stringtime + temptime.toString() + ":";
+	temptime = (midtime - temptime)*60.;
+
+	// Get seconds
+	if(temptime < 10)
+		stringtime = stringtime + "0" + (Math.floor(temptime)).toString();
+	else
+		stringtime = stringtime + (Math.floor(temptime)).toString();
+	
+	return stringtime;
+}
+
+// Display the current track name
+function GetCurrentTrack()
+{
+	var tempsmth;
+	if(currentTrack == "a")
+		tempsmth = 4;
+	else if(currentTrack == "b")
+		tempsmth = 5;
+
+	$("#currentthis").html("Currently playing: " + playing[currentScene-1][tempsmth] + " <span id='currentthistime'></span>");
+	
+	if(currentTrack == "a")
+		tempsmth = 5;
+	else if(currentTrack == "b")
+		tempsmth = 4;
+		
+	$("#currentnext").html("Next track on this scene: " + playing[currentScene-1][tempsmth]);
+	
+	$("#currentthistime").html("(" + TransformTime(document.getElementById("audio" + currentScene + currentTrack).currentTime) + "/" + TransformTime(document.getElementById("audio" + currentScene + currentTrack).duration) + ")");
+}
+
+// Running time
+function UpdateTime()
+{
+	$("#currentthistime").html("(" + TransformTime(document.getElementById("audio" + currentScene + currentTrack).currentTime) + "/" + TransformTime(document.getElementById("audio" + currentScene + currentTrack).duration) + ")");
+}
+
+// Setup how many scene we display
+function SetupNumberOfScenes()
+{
+	var eachscene = $("#allscenes").children();
+	var currentnum = $(".sceneshown").length;
+	var selectednum = $("#tracks").val();
+	for(var i = 0; i < 10; i++)
+	{
+//		alert(i + ", " + selectednum + ", " + currentnum);
+		if( (i >= selectednum) && (selectednum < currentnum) )
+		{
+			if( ($(eachscene[i]).attr("class") == "scene sceneshown") || ($(eachscene[i]).attr("class") == "sceneshown scene") )
+				$(eachscene[i]).addClass("scenehidden").removeClass("sceneshown");
+		}
+		else if( (i >= currentnum) && (i < selectednum) && (currentnum < selectednum) )
+		{
+			if( ($(eachscene[i]).attr("class") == "scene scenehidden") || ($(eachscene[i]).attr("class") == "scenehidden scene") )
+				$(eachscene[i]).addClass("sceneshown").removeClass("scenehidden");
+		}
+	}
+}
+
+// Get the default list of music in preset subfolders (ambient, battle, creepy, tavern, temple, town) - TODO
+function OpenPreset()
+{
+	var eachsetup = $(".scenesel");
+	
+	// Empty music arrays if they are full
+	scene1 = [];
+	scene2 = [];
+	scene3 = [];
+	scene4 = [];
+	scene5 = [];
+	scene6 = [];
+	scene7 = [];
+	scene8 = [];
+	scene9 = [];
+	scene10 = [];
+
+	// Ambient music
+	$.ajax({
+		url : "music/ambient_list.txt",
+		dataType: "text",
+		success : function (data) {
+		
+			var res = data.split("\n");
+			
+			for(var i = 0; i < (res.length); i++)
+			{
+				if(res[i] != "")
+				{
+					scene1[i] = "music/ambient/" + res[i];
+				}
+			}
+	
+			$(eachsetup[0]).children("span").html(" (" + scene1.length + " files opened)");
+			
+			shuffleArray(scene1);
+			
+			document.getElementById("sceneaudio1a").src = scene1[0];
+			document.getElementById("audio1a").load();
+			document.getElementById("audio1a").volume = 0.0;
+			playing[0][2] = 0;
+			playing[0][4] = scene1[0];
+			document.getElementById("sceneaudio1b").src = scene1[1];
+			document.getElementById("audio1b").load();
+			document.getElementById("audio1b").volume = 0.0;
+			playing[0][3] = 1;
+			playing[0][5] = scene1[1];
+		}
+	});
+
+	// Battle music
+	$.ajax({
+		url : "music/battle_list.txt",
+		dataType: "text",
+		success : function (data) {
+		
+			var res = data.split("\n");
+			
+			for(var i = 0; i < (res.length); i++)
+			{
+				if(res[i] != "")
+				{
+					scene2[i] = "music/battle/" + res[i];
+				}
+			}
+		
+			$(eachsetup[1]).children("span").html(" (" + scene2.length + " files opened)");
+			
+			shuffleArray(scene2);
+			
+			document.getElementById("sceneaudio2a").src = scene2[0];
+			document.getElementById("audio2a").load();
+			document.getElementById("audio2a").volume = 0.0;
+			playing[1][2] = 0;
+			playing[1][4] = scene2[0];
+			document.getElementById("sceneaudio2b").src = scene2[1];
+			document.getElementById("audio2b").load();
+			document.getElementById("audio2b").volume = 0.0;
+			playing[1][3] = 1;
+			playing[1][5] = scene2[1];
+		}
+	});
+
+	// Creepy music
+	$.ajax({
+		url : "music/creepy_list.txt",
+		dataType: "text",
+		success : function (data) {
+		
+			var res = data.split("\n");
+			
+			for(var i = 0; i < (res.length); i++)
+			{
+				if(res[i] != "")
+				{
+					scene3[i] = "music/creepy/" + res[i];
+				}
+			}
+		
+			$(eachsetup[2]).children("span").html(" (" + scene3.length + " files opened)");
+			
+			shuffleArray(scene3);
+			
+			document.getElementById("sceneaudio3a").src = scene3[0];
+			document.getElementById("audio3a").load();
+			document.getElementById("audio3a").volume = 0.0;
+			playing[2][2] = 0;
+			playing[2][4] = scene3[0];
+			document.getElementById("sceneaudio3b").src = scene3[1];
+			document.getElementById("audio3b").load();
+			document.getElementById("audio3b").volume = 0.0;
+			playing[2][3] = 1;
+			playing[2][5] = scene3[1];
+		}
+	});
+
+	// Tavern music
+	$.ajax({
+		url : "music/tavern_list.txt",
+		dataType: "text",
+		success : function (data) {
+		
+			var res = data.split("\n");
+			
+			for(var i = 0; i < (res.length); i++)
+			{
+				if(res[i] != "")
+				{
+					scene4[i] = "music/tavern/" + res[i];
+				}
+			}
+		
+			$(eachsetup[3]).children("span").html(" (" + scene4.length + " files opened)");
+			
+			shuffleArray(scene4);
+			
+			document.getElementById("sceneaudio4a").src = scene4[0];
+			document.getElementById("audio4a").load();
+			document.getElementById("audio4a").volume = 0.0;
+			playing[3][2] = 0;
+			playing[3][4] = scene4[0];
+			document.getElementById("sceneaudio4b").src = scene4[1];
+			document.getElementById("audio4b").load();
+			document.getElementById("audio4b").volume = 0.0;
+			playing[3][3] = 1;
+			playing[3][5] = scene4[1];
+		}
+	});
+
+	// Temple music
+	$.ajax({
+		url : "music/temple_list.txt",
+		dataType: "text",
+		success : function (data) {
+		
+			var res = data.split("\n");
+			
+			for(var i = 0; i < (res.length); i++)
+			{
+				if(res[i] != "")
+				{
+					scene5[i] = "music/temple/" + res[i];
+				}
+			}
+		
+			$(eachsetup[4]).children("span").html(" (" + scene5.length + " files opened)");
+			
+			shuffleArray(scene5);
+			
+			document.getElementById("sceneaudio5a").src = scene5[0];
+			document.getElementById("audio5a").load();
+			document.getElementById("audio5a").volume = 0.0;
+			playing[4][2] = 0;
+			playing[4][4] = scene5[0];
+			document.getElementById("sceneaudio5b").src = scene5[1];
+			document.getElementById("audio5b").load();
+			document.getElementById("audio5b").volume = 0.0;
+			playing[4][3] = 1;
+			playing[4][5] = scene5[1];
+		}
+	});
+
+	// Town music
+	$.ajax({
+		url : "music/town_list.txt",
+		dataType: "text",
+		success : function (data) {
+		
+			var res = data.split("\n");
+			
+			for(var i = 0; i < (res.length); i++)
+			{
+				if(res[i] != "")
+				{
+					scene6[i] = "music/town/" + res[i];
+				}
+			}
+		
+			$(eachsetup[5]).children("span").html(" (" + scene6.length + " files opened)");
+			
+			shuffleArray(scene6);
+			
+			document.getElementById("sceneaudio6a").src = scene6[0];
+			document.getElementById("audio6a").load();
+			document.getElementById("audio6a").volume = 0.0;
+			playing[5][2] = 0;
+			playing[5][4] = scene6[0];
+			document.getElementById("sceneaudio6b").src = scene6[1];
+			document.getElementById("audio6b").load();
+			document.getElementById("audio6b").volume = 0.0;
+			playing[5][3] = 1;
+			playing[5][5] = scene6[1];
+		}
+	});
+	
+}
+</script>
+
+</body>
+
+</html>
